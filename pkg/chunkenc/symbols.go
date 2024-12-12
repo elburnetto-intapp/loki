@@ -99,7 +99,7 @@ func (s *symbolizer) add(lbl string) uint32 {
 // Lookup coverts and returns labels pairs for the given symbols
 func (s *symbolizer) Lookup(syms symbols, buf labels.Labels) labels.Labels {
 	if len(syms) == 0 {
-		return nil
+		return buf[:0]
 	}
 	if buf == nil {
 		buf = structuredMetadataPool.Get().(labels.Labels)
