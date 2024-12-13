@@ -1,0 +1,69 @@
+$ gotest -v ./pkg/chunkenc/... -test.run="^$" -test.bench="BenchmarkRead" -test.benchtime=5x -test.timeout=15m
+goos: linux
+goarch: amd64
+pkg: github.com/grafana/loki/v3/pkg/chunkenc
+cpu: 11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz
+BenchmarkRead
+BenchmarkRead/1.5_MiB_256_KiB_lz4-64k
+BenchmarkRead/1.5_MiB_256_KiB_lz4-64k-8         	       5	 567190026 ns/op	2797.59 MB/s	 134353773 compressed_size	   5911509 num_lines	   1182302 num_lines_per_chunk	        11.81 ratio	1586763739 uncompressed_size	 4279939 B/op	   60834 allocs/op
+BenchmarkRead/1.5_MiB_256_KiB_snappy
+BenchmarkRead/1.5_MiB_256_KiB_snappy-8          	       5	 516437898 ns/op	2383.01 MB/s	 136023212 compressed_size	   4584960 num_lines	    916992 num_lines_per_chunk	         9.048 ratio	1230677939 uncompressed_size	 2386894 B/op	   23801 allocs/op
+BenchmarkRead/1.5_MiB_256_KiB_gzip
+BenchmarkRead/1.5_MiB_256_KiB_gzip-8            	       5	2348971366 ns/op	 982.50 MB/s	 133300283 compressed_size	   8597978 num_lines	   1719596 num_lines_per_chunk	        17.31 ratio	2307863827 uncompressed_size	 4402043 B/op	   44392 allocs/op
+BenchmarkRead/1.5_MiB_512_KiB_lz4-64k
+BenchmarkRead/1.5_MiB_512_KiB_lz4-64k-8         	       5	 476568607 ns/op	2749.33 MB/s	 110024229 compressed_size	   4881358 num_lines	    976272 num_lines_per_chunk	        11.91 ratio	1310243274 uncompressed_size	 1774710 B/op	   25305 allocs/op
+BenchmarkRead/1.5_MiB_512_KiB_snappy
+BenchmarkRead/1.5_MiB_512_KiB_snappy-8          	       5	 707568698 ns/op	1475.88 MB/s	 114673001 compressed_size	   3890509 num_lines	    778102 num_lines_per_chunk	         9.107 ratio	1044283275 uncompressed_size	 1036494 B/op	   10301 allocs/op
+BenchmarkRead/1.5_MiB_512_KiB_gzip
+BenchmarkRead/1.5_MiB_512_KiB_gzip-8            	       5	1994045565 ns/op	 966.51 MB/s	 109892476 compressed_size	   7179994 num_lines	   1435999 num_lines_per_chunk	        17.54 ratio	1927263258 uncompressed_size	 1852104 B/op	   18731 allocs/op
+BenchmarkRead/1.5_MiB_1.0_MiB_lz4-64k
+BenchmarkRead/1.5_MiB_1.0_MiB_lz4-64k-8         	       5	 310853470 ns/op	2593.40 MB/s	  67347528 compressed_size	   3003435 num_lines	    600687 num_lines_per_chunk	        11.97 ratio	 806166093 uncompressed_size	  560310 B/op	    8055 allocs/op
+BenchmarkRead/1.5_MiB_1.0_MiB_snappy
+BenchmarkRead/1.5_MiB_1.0_MiB_snappy-8          	       5	 284816400 ns/op	2191.85 MB/s	  68243358 compressed_size	   2325806 num_lines	    465161 num_lines_per_chunk	         9.148 ratio	 624275050 uncompressed_size	  370185 B/op	    3303 allocs/op
+BenchmarkRead/1.5_MiB_1.0_MiB_gzip
+BenchmarkRead/1.5_MiB_1.0_MiB_gzip-8            	       5	1078844906 ns/op	 971.13 MB/s	  59310719 compressed_size	   3903288 num_lines	    780658 num_lines_per_chunk	        17.66 ratio	1047699670 uncompressed_size	  521772 B/op	    5368 allocs/op
+BenchmarkRead/2.0_MiB_256_KiB_lz4-64k
+BenchmarkRead/2.0_MiB_256_KiB_lz4-64k-8         	       5	 850816585 ns/op	2588.92 MB/s	 186584230 compressed_size	   8206105 num_lines	   1641221 num_lines_per_chunk	        11.81 ratio	2202699476 uncompressed_size	 5934209 B/op	   84308 allocs/op
+BenchmarkRead/2.0_MiB_256_KiB_snappy
+BenchmarkRead/2.0_MiB_256_KiB_snappy-8          	       5	 958952874 ns/op	1776.01 MB/s	 188247094 compressed_size	   6344949 num_lines	   1268990 num_lines_per_chunk	         9.047 ratio	1703110107 uncompressed_size	 3276494 B/op	   32801 allocs/op
+BenchmarkRead/2.0_MiB_256_KiB_gzip
+BenchmarkRead/2.0_MiB_256_KiB_gzip-8            	       5	3750615692 ns/op	 858.92 MB/s	 186125978 compressed_size	  12001585 num_lines	   2400317 num_lines_per_chunk	        17.31 ratio	3221476461 uncompressed_size	 6126062 B/op	   61806 allocs/op
+BenchmarkRead/2.0_MiB_512_KiB_lz4-64k
+BenchmarkRead/2.0_MiB_512_KiB_lz4-64k-8         	       5	 684194673 ns/op	2834.17 MB/s	 162817774 compressed_size	   7224162 num_lines	   1444832 num_lines_per_chunk	        11.91 ratio	1939125825 uncompressed_size	 2622710 B/op	   37305 allocs/op
+BenchmarkRead/2.0_MiB_512_KiB_snappy
+BenchmarkRead/2.0_MiB_512_KiB_snappy-8          	       5	 694372414 ns/op	2184.48 MB/s	 166597606 compressed_size	   5651062 num_lines	   1130212 num_lines_per_chunk	         9.105 ratio	1516845896 uncompressed_size	 1481294 B/op	   14801 allocs/op
+BenchmarkRead/2.0_MiB_512_KiB_gzip
+BenchmarkRead/2.0_MiB_512_KiB_gzip-8            	       5	3945665536 ns/op	 717.42 MB/s	 161441204 compressed_size	  10545796 num_lines	   2109159 num_lines_per_chunk	        17.53 ratio	2830703739 uncompressed_size	 2703926 B/op	   27336 allocs/op
+BenchmarkRead/2.0_MiB_1.0_MiB_lz4-64k
+BenchmarkRead/2.0_MiB_1.0_MiB_lz4-64k-8         	       5	 493684682 ns/op	2797.80 MB/s	 115472112 compressed_size	   5145794 num_lines	   1029159 num_lines_per_chunk	        11.96 ratio	1381230910 uncompressed_size	  943203 B/op	   13493 allocs/op
+BenchmarkRead/2.0_MiB_1.0_MiB_snappy
+BenchmarkRead/2.0_MiB_1.0_MiB_snappy-8          	       5	 506498782 ns/op	2258.04 MB/s	 125059322 compressed_size	   4260858 num_lines	    852172 num_lines_per_chunk	         9.145 ratio	1143692440 uncompressed_size	  588494 B/op	    5801 allocs/op
+BenchmarkRead/2.0_MiB_1.0_MiB_gzip
+BenchmarkRead/2.0_MiB_1.0_MiB_gzip-8            	       5	2191863455 ns/op	 908.07 MB/s	 112740884 compressed_size	   7415088 num_lines	   1483018 num_lines_per_chunk	        17.65 ratio	1990362846 uncompressed_size	  967971 B/op	    9876 allocs/op
+BenchmarkRead/4.0_MiB_256_KiB_lz4-64k
+BenchmarkRead/4.0_MiB_256_KiB_lz4-64k-8         	       5	2736956427 ns/op	1708.39 MB/s	 396121893 compressed_size	  17419585 num_lines	   3483917 num_lines_per_chunk	        11.80 ratio	4675791402 uncompressed_size	12584740 B/op	  178565 allocs/op
+BenchmarkRead/4.0_MiB_256_KiB_snappy
+BenchmarkRead/4.0_MiB_256_KiB_snappy-8          	       5	1652007121 ns/op	2174.99 MB/s	 397225807 compressed_size	  13386015 num_lines	   2677203 num_lines_per_chunk	         9.045 ratio	3593093211 uncompressed_size	 6848281 B/op	   68807 allocs/op
+BenchmarkRead/4.0_MiB_256_KiB_gzip
+BenchmarkRead/4.0_MiB_256_KiB_gzip-8            	       5	7169252586 ns/op	 955.08 MB/s	 395720170 compressed_size	  25509098 num_lines	   5101820 num_lines_per_chunk	        17.30 ratio	6847200146 uncompressed_size	13040745 B/op	  130904 allocs/op
+BenchmarkRead/4.0_MiB_512_KiB_lz4-64k
+BenchmarkRead/4.0_MiB_512_KiB_lz4-64k-8         	       5	3278365808 ns/op	1358.81 MB/s	 374170431 compressed_size	  16595925 num_lines	   3319185 num_lines_per_chunk	        11.91 ratio	4454690855 uncompressed_size	 6001910 B/op	   85305 allocs/op
+BenchmarkRead/4.0_MiB_512_KiB_snappy
+BenchmarkRead/4.0_MiB_512_KiB_snappy-8          	       5	1624942736 ns/op	2096.88 MB/s	 374091118 compressed_size	  12693951 num_lines	   2538790 num_lines_per_chunk	         9.108 ratio	3407315879 uncompressed_size	 3276636 B/op	   32802 allocs/op
+BenchmarkRead/4.0_MiB_512_KiB_gzip
+BenchmarkRead/4.0_MiB_512_KiB_gzip-8            	       5	6753055207 ns/op	 963.12 MB/s	 371075325 compressed_size	  24230628 num_lines	   4846126 num_lines_per_chunk	        17.53 ratio	6504019671 uncompressed_size	 6181046 B/op	   62356 allocs/op
+BenchmarkRead/4.0_MiB_1.0_MiB_lz4-64k
+BenchmarkRead/4.0_MiB_1.0_MiB_lz4-64k-8         	       5	1754988248 ns/op	2213.57 MB/s	 324770058 compressed_size	  14472797 num_lines	   2894559 num_lines_per_chunk	        11.96 ratio	3884794649 uncompressed_size	 2626803 B/op	   37364 allocs/op
+BenchmarkRead/4.0_MiB_1.0_MiB_snappy
+BenchmarkRead/4.0_MiB_1.0_MiB_snappy-8          	       5	1791250739 ns/op	1694.05 MB/s	 332006074 compressed_size	  11304886 num_lines	   2260977 num_lines_per_chunk	         9.140 ratio	3034468241 uncompressed_size	 1481294 B/op	   14801 allocs/op
+BenchmarkRead/4.0_MiB_1.0_MiB_gzip
+BenchmarkRead/4.0_MiB_1.0_MiB_gzip-8            	       5	8067569933 ns/op	 702.60 MB/s	 321256595 compressed_size	  21117024 num_lines	   4223405 num_lines_per_chunk	        17.64 ratio	5668282973 uncompressed_size	 2709283 B/op	   27407 allocs/op
+BenchmarkRead/4.0_MiB_2.0_MiB_lz4-64k
+BenchmarkRead/4.0_MiB_2.0_MiB_lz4-64k-8         	       5	 995563711 ns/op	2796.31 MB/s	 232121188 compressed_size	  10371350 num_lines	   2074270 num_lines_per_chunk	        11.99 ratio	2783901899 uncompressed_size	  951030 B/op	   13605 allocs/op
+BenchmarkRead/4.0_MiB_2.0_MiB_snappy
+BenchmarkRead/4.0_MiB_2.0_MiB_snappy-8          	       5	1018522350 ns/op	2246.10 MB/s	 249751261 compressed_size	   8522870 num_lines	   1704574 num_lines_per_chunk	         9.160 ratio	2287701377 uncompressed_size	  588494 B/op	    5801 allocs/op
+BenchmarkRead/4.0_MiB_2.0_MiB_gzip
+BenchmarkRead/4.0_MiB_2.0_MiB_gzip-8            	       5	5418154117 ns/op	 734.80 MB/s	 224847318 compressed_size	  14832037 num_lines	   2966407 num_lines_per_chunk	        17.71 ratio	3981232634 uncompressed_size	  967867 B/op	    9876 allocs/op
+PASS
+ok  	github.com/grafana/loki/v3/pkg/chunkenc	894.396s
+
