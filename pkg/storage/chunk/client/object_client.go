@@ -14,6 +14,11 @@ import (
 	"github.com/grafana/loki/v3/pkg/storage/chunk"
 	"github.com/grafana/loki/v3/pkg/storage/chunk/client/util"
 	"github.com/grafana/loki/v3/pkg/storage/config"
+	"github.com/grafana/loki/v3/pkg/util/pool"
+)
+
+var (
+	ChunkBufferPool = pool.NewBuffer(64<<10, 8<<20, 2) // [64KiB, 128KiB, ..., 8MiB]
 )
 
 type ObjectAttributes struct {
@@ -191,7 +196,8 @@ func (o *client) getChunk(ctx context.Context, decodeContext *chunk.DecodeContex
 
 	// adds bytes.MinRead to avoid allocations when the size is known.
 	// This is because ReadFrom reads bytes.MinRead by bytes.MinRead.
-	buf := bytes.NewBuffer(make([]byte, 0, size+bytes.MinRead))
+	buf := ChunkBufferPool.Get(int(size + bytes.MinRead))
+	defer ChunkBufferPool.Put(buf)
 	_, err = buf.ReadFrom(readCloser)
 	if err != nil {
 		return chunk.Chunk{}, errors.WithStack(err)
